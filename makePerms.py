@@ -33,10 +33,10 @@ subdomains += generated
 
 subdomains = sorted(subdomains)
 
-with open("permutations_untouched.txt", "w") as fh:
+with open("permutations_untouched.txt", "w+") as fh:
     fh.write("\n".join(subdomains))
 
-os.system("sort permutations_untouched.txt | uniq permutations_untouched.txt > permutations.txt")
+os.system("uniq permutations_untouched.txt > permutations.txt")
 print("Deleting previous split folder")
 os.system("rm -rf splits")
 os.system("rm -rf results")
