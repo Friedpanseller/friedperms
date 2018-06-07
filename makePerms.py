@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
 import os
-from colorama import Fore, Style
 
-with open("wordslist.txt", "r") as fh:
+with open("subdomains-10000plus.txt", "r") as fh:
     subdomains = list(filter(bool, fh.read().split()))
 
 prefixs = ["", "au02", "au03", "pre", "post", "non"]
@@ -33,13 +32,13 @@ subdomains = sorted(subdomains)
 with open("permutations.txt", "w") as fh:
     fh.write("\n".join(subdomains))
 
-print(Fore.RED, "Deleting previous split folder")
+print("Deleting previous split folder")
 os.system("rm -rf splits")
 os.system("rm -rf results")
-print(Fore.GREEN, "Making split folder")
+print("Making split folder")
 os.system("mkdir splits")
 os.system("mkdir results")
-print(Fore.YELLOW, "Splitting permutations.txt")
+print("Splitting permutations.txt")
 os.system("split -l 10000 permutations.txt splits/")
-print(Fore.RED, "Deleting permutations.txt")
+print("Deleting permutations.txt")
 os.system("rm permutations.txt")
