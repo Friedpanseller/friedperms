@@ -2,7 +2,7 @@
 
 import os
 
-with open("subdomains-10000plus.txt", "r") as fh:
+with open("wordslist.txt", "r") as fh:
     subdomains = list(filter(bool, fh.read().split()))
 
 prefixs = ["", "au02", "au03", "pre", "post", "non"]
